@@ -168,11 +168,29 @@
     <Compile Include="AccountManager\Bank.cs" />
     <Compile Include="AccountManager\IO\AccountDTO.cs" />
     <Compile Include="AccountManager\IO\AccountMovementDTO.cs" />
+    <Compile Include="GUI\AgregarCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AgregarCuentas.Designer.cs">
+      <DependentUpon>AgregarCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AgregarMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AgregarMovimientos.Designer.cs">
+      <DependentUpon>AgregarMovimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ObtenerSaldoNegativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ObtenerSaldoNegativo.Designer.cs">
+      <DependentUpon>ObtenerSaldoNegativo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201911210002024_InitialCreate.cs" />
     <Compile Include="Migrations\201911210002024_InitialCreate.designer.cs">
@@ -200,8 +218,17 @@
     <None Include="Properties\DataSources\Ejercicio02.AccountManager.Domain.Document.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GUI\AgregarCuentas.resx">
+      <DependentUpon>AgregarCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AgregarMovimientos.resx">
+      <DependentUpon>AgregarMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ObtenerSaldoNegativo.resx">
+      <DependentUpon>ObtenerSaldoNegativo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911210002024_InitialCreate.resx">
       <DependentUpon>201911210002024_InitialCreate.cs</DependentUpon>

@@ -96,7 +96,7 @@ namespace Ejercicio02.AccountManager
                     var bAccounts = bUoW.AccountRepository.GetAll();
                     foreach(Account bAccount in bAccounts)
                     {
-                        if (bAccount.GetBalance()<0)
+                        if (bAccount.GetBalance()>Convert.ToDouble(bAccount.OverdraftLimit))
                         {
                             bAccountsDTO.Add(new IO.AccountDTO
                             {
@@ -132,6 +132,7 @@ namespace Ejercicio02.AccountManager
                             Name = pName,
                             OverdraftLimit = pOverdraftLimit
                         };
+                        bClient.Accounts.Add(bAccount);
                         bDbContext.Accounts.Add(bAccount);
                         bDbContext.SaveChanges();
                         agregado = true;
@@ -146,7 +147,7 @@ namespace Ejercicio02.AccountManager
         /// <param name="pAccountId"></param>
         /// <param name="pDescription"></param>
         /// <param name="pAmount"></param>
-        public bool NewAccountMovement(int pAccountId, String pDescription, double pAmount )
+        public bool NewAccountMovement(int pAccountId, String pDescription, double pAmount, DateTime pDate)
         {
             bool agregado = false;
             using (var bDbContext= new AccountManagerDbContext())
@@ -158,11 +159,13 @@ namespace Ejercicio02.AccountManager
                     {
                         AccountMovement pAccountM = new AccountMovement
                         {
-                            Date=DateTime.Today,
+                            Date=pDate,
                             Description=pDescription,
                             Amount=pAmount
                         };
+                       
                         bAccount.Movements.Add(pAccountM);
+                        bDbContext.AccountMovements.Add(pAccountM);
                         bDbContext.SaveChanges();
                         agregado = true;
                     }

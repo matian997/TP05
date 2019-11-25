@@ -20,7 +20,7 @@ namespace Ejercicio02.AccountManager.Domain
             return (from movement in this.Movements select movement.Amount).Sum();
         }
 
-        public IEnumerable<AccountMovement> GetLastMovements(int pCount = 7)
+        public IEnumerable<AccountMovement> GetLastMovements(int pCount)
         {
             return this.Movements.OrderByDescending(pMovement => pMovement.Date).Take(pCount);
         }

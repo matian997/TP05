@@ -82,7 +82,7 @@ namespace Ejercicio02.GUI
   
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
@@ -93,6 +93,27 @@ namespace Ejercicio02.GUI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void saldoNegativoYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form obtenerSaldoNegativo = new ObtenerSaldoNegativo();
+            obtenerSaldoNegativo.Show();
+        }
+
+        private void cuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form agregarCuentas = new AgregarCuentas();
+            agregarCuentas.Show();
+        }
+
+        private void movimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form agregarMovimientos = new AgregarMovimientos();
+            agregarMovimientos.Show();
         }
     }
 }

@@ -49,8 +49,15 @@ namespace Ejercicio02.GUI
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBoxCuentas = new System.Windows.Forms.GroupBox();
             this.groupBoxMovimientos = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obtenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saldoNegativoYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxCuentas.SuspendLayout();
             this.groupBoxMovimientos.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // IdCliente
@@ -213,6 +220,55 @@ namespace Ejercicio02.GUI
             this.groupBoxMovimientos.TabStop = false;
             this.groupBoxMovimientos.Text = "Movimientos";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarToolStripMenuItem,
+            this.obtenerToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // agregarToolStripMenuItem
+            // 
+            this.agregarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cuentaToolStripMenuItem,
+            this.movimientosToolStripMenuItem});
+            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.agregarToolStripMenuItem.Text = "Agregar";
+            // 
+            // cuentaToolStripMenuItem
+            // 
+            this.cuentaToolStripMenuItem.Name = "cuentaToolStripMenuItem";
+            this.cuentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuentaToolStripMenuItem.Text = "Cuenta";
+            this.cuentaToolStripMenuItem.Click += new System.EventHandler(this.cuentaToolStripMenuItem_Click);
+            // 
+            // movimientosToolStripMenuItem
+            // 
+            this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
+            this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.movimientosToolStripMenuItem.Text = "Movimientos";
+            this.movimientosToolStripMenuItem.Click += new System.EventHandler(this.movimientosToolStripMenuItem_Click);
+            // 
+            // obtenerToolStripMenuItem
+            // 
+            this.obtenerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saldoNegativoYToolStripMenuItem});
+            this.obtenerToolStripMenuItem.Name = "obtenerToolStripMenuItem";
+            this.obtenerToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.obtenerToolStripMenuItem.Text = "Obtener";
+            // 
+            // saldoNegativoYToolStripMenuItem
+            // 
+            this.saldoNegativoYToolStripMenuItem.Name = "saldoNegativoYToolStripMenuItem";
+            this.saldoNegativoYToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
+            this.saldoNegativoYToolStripMenuItem.Text = "Saldo negativo y limite de descubierto superado";
+            this.saldoNegativoYToolStripMenuItem.Click += new System.EventHandler(this.saldoNegativoYToolStripMenuItem_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +279,8 @@ namespace Ejercicio02.GUI
             this.Controls.Add(this.listViewAccountMovements);
             this.Controls.Add(this.groupBoxCuentas);
             this.Controls.Add(this.groupBoxMovimientos);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
             this.Text = "Bank";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
@@ -230,7 +288,10 @@ namespace Ejercicio02.GUI
             this.groupBoxCuentas.PerformLayout();
             this.groupBoxMovimientos.ResumeLayout(false);
             this.groupBoxMovimientos.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -274,5 +335,11 @@ namespace Ejercicio02.GUI
         private System.Windows.Forms.ColumnHeader columnAmount;
         private System.Windows.Forms.GroupBox groupBoxCuentas;
         private System.Windows.Forms.GroupBox groupBoxMovimientos;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimientosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem obtenerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saldoNegativoYToolStripMenuItem;
     }
 }
