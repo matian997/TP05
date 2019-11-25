@@ -23,17 +23,31 @@ namespace Ejercicio02.GUI
 
         private void btnGetClientAccounts_Click(object sender, EventArgs e)
         {
-            int idClient = Convert.ToInt32(txtIdClient.Text);
-            txtIdClient.Text = String.Empty;
-            listViewAccounts.Items.Clear();
-            var accounts = bank.GetClientAccounts(idClient);
-            foreach (AccountDTO acc in accounts)
+            try
             {
-                ListViewItem item = new ListViewItem();
-                item = listViewAccounts.Items.Add(acc.Id.ToString());
-                item.SubItems.Add(acc.Name);
-                item.SubItems.Add(acc.OverDraftLimit.ToString());
-                item.SubItems.Add(acc.Balance.ToString());
+                int idClient = Convert.ToInt32(txtIdClient.Text);
+                txtIdClient.Text = String.Empty;
+                listViewAccounts.Items.Clear();
+                var accounts = bank.GetClientAccounts(idClient);
+                if (accounts.Count() == 0)
+                {
+                    MessageBox.Show("El cliente no existe o no tiene ninguna cuenta.");
+                }
+                else
+                {
+                    foreach (AccountDTO acc in accounts)
+                    {
+                        ListViewItem item = new ListViewItem();
+                        item = listViewAccounts.Items.Add(acc.Id.ToString());
+                        item.SubItems.Add(acc.Name);
+                        item.SubItems.Add(acc.OverDraftLimit.ToString());
+                        item.SubItems.Add(acc.Balance.ToString());
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Formato incorrecto, solo caracteres numericos.");
             }
         }
         private void btnGetAccountMovements_Click(object sender, EventArgs e)
@@ -60,7 +74,7 @@ namespace Ejercicio02.GUI
                     }
                 }
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 MessageBox.Show("Formato incorrecto, solo caracteres numericos.");
             }
