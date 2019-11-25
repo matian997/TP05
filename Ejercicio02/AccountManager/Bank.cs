@@ -117,8 +117,9 @@ namespace Ejercicio02.AccountManager
         /// <param name="pIdCliente"></param>
         /// <param name="pName"></param>
         /// <param name="pOverdraftLimit"></param>
-        public void NewAccount(int pClientId, String pName, int pOverdraftLimit )
+        public bool NewAccount(int pClientId, String pName, int pOverdraftLimit )
         {
+            bool agregado = false;
             using (var bDbContext = new AccountManagerDbContext())
             {
                 using (IUnitOfWork bUoW = new UnitOfWork(bDbContext))
@@ -133,9 +134,11 @@ namespace Ejercicio02.AccountManager
                         };
                         bDbContext.Accounts.Add(bAccount);
                         bDbContext.SaveChanges();
+                        agregado = true;
                     }
                 }
             }
+            return agregado;
         }
         /// <summary>
         /// Se agrega un nuevo movimiento de una cuenta
@@ -143,8 +146,9 @@ namespace Ejercicio02.AccountManager
         /// <param name="pAccountId"></param>
         /// <param name="pDescription"></param>
         /// <param name="pAmount"></param>
-        public void NewAccountMovement(int pAccountId, String pDescription, double pAmount )
+        public bool NewAccountMovement(int pAccountId, String pDescription, double pAmount )
         {
+            bool agregado = false;
             using (var bDbContext= new AccountManagerDbContext())
             {
                 using(IUnitOfWork bUoW=new UnitOfWork(bDbContext))
@@ -160,9 +164,11 @@ namespace Ejercicio02.AccountManager
                         };
                         bAccount.Movements.Add(pAccountM);
                         bDbContext.SaveChanges();
+                        agregado = true;
                     }
                 }
             }
+            return agregado; 
         }
     }
 }
