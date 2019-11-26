@@ -22,6 +22,11 @@ namespace Ejercicio02.AccountManager.DAL.EntityFramework
             this.iDbContext = pDbContext;
         }
 
+        //Metodos
+        /// <summary>
+        /// Agrega una entidad
+        /// </summary>
+        /// <param name="pEntity"></param>
         public void Add(TEntity pEntity)
         {
             if (pEntity == null)
@@ -30,14 +35,27 @@ namespace Ejercicio02.AccountManager.DAL.EntityFramework
             }
             this.iDbContext.Set<TEntity>().Add(pEntity);
         }
+        /// <summary>
+        /// Retorna una entidad
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns></returns>
         public TEntity Get(int pId)
         {
             return this.iDbContext.Set<TEntity>().Find(pId);
         }
+        /// <summary>
+        /// Retorna una lista con todas las entidades
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<TEntity> GetAll()
         {
             return this.iDbContext.Set<TEntity>();
         }
+        /// <summary>
+        /// Remueve una entidad
+        /// </summary>
+        /// <param name="pEntity"></param>
         public void Remove(TEntity pEntity)
         {
             if (pEntity == null)

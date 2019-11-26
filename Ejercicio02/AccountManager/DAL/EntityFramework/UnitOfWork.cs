@@ -24,10 +24,15 @@ namespace Ejercicio02.AccountManager.DAL.EntityFramework
         private AccountManagerDbContext iDbContext;
         private bool iDisposedValue = false;
 
+        //Propiedades
         public IAccountRepository AccountRepository { get; private set; }
 
         public IClientRepository ClientRepository { get; private set; }
 
+        //Metodos
+        /// <summary>
+        /// Guarda los cambios de la base de datos
+        /// </summary>
         public void Complete()
         {
             this.iDbContext.SaveChanges();

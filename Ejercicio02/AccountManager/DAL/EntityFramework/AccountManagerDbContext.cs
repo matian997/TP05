@@ -11,14 +11,18 @@ namespace Ejercicio02.AccountManager.DAL.EntityFramework
 {
     public class AccountManagerDbContext : DbContext
     {
+        //Constructores
         public AccountManagerDbContext() : base("AccountManager")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AccountManagerDbContext, Configuration>());
         }
+        
+        //Propiedades
         public DbSet<Client> Clients { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountMovement> AccountMovements { get; set; }
 
+        //Metodos
         protected override void OnModelCreating(DbModelBuilder pModelBuilder)
         {
             pModelBuilder.Configurations.AddFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());

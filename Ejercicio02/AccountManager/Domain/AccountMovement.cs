@@ -8,6 +8,7 @@ namespace Ejercicio02.AccountManager.Domain
 {
     public class AccountMovement
     {
+        //Propiedades
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public String Description { get; set; }

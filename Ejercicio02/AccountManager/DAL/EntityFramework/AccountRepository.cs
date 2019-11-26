@@ -8,10 +8,16 @@ namespace Ejercicio02.AccountManager.DAL.EntityFramework
 {
     public class AccountRepository : Repository<Domain.Account, AccountManagerDbContext>, IAccountRepository
     {
+        //Cosntructor
         public AccountRepository(AccountManagerDbContext pDbContext) : base(pDbContext)
         {
         }
 
+        //Metodos
+        /// <summary>
+        /// Retorna una lista de 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Domain.Account> GetOverdrawnAccounts()
         {
             IList<Domain.Account> mOverdrawnAccounts = new List<Domain.Account>();
