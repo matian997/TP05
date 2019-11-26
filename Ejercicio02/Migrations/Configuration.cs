@@ -17,7 +17,7 @@
 
         protected override void Seed(AccountManager.DAL.EntityFramework.AccountManagerDbContext context)
         {
-            /*List<AccountMovement> accountMovements = new List<AccountMovement>
+            List<AccountMovement> accountMovements = new List<AccountMovement>
             {
                 new AccountMovement { Id = 1, Description = "Compra en Aliexpress", Date = DateTime.Parse("27/10/2019"), Amount= double.Parse("3400.54")},
                 new AccountMovement { Id = 2, Description = "Compra de celular", Date = DateTime.Parse("12/09/2019"), Amount= double.Parse("28000.43")},
@@ -51,7 +51,7 @@
             {
                 context.Clients.Add(client);
                 context.SaveChanges();
-            }*/
+            }
         }
     }
 }

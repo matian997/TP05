@@ -83,7 +83,7 @@ namespace Ejercicio02.AccountManager
             return accountMovementsDTO;
         }
         /// <summary>
-        /// Retorna una lsta de cuentas con saldo negativo
+        /// Retorna una lista de cuentas con saldo negativo
         /// </summary>
         /// <returns></returns>
         public IEnumerable<IO.AccountDTO> GetAccountsNegativeAMount()
@@ -96,15 +96,18 @@ namespace Ejercicio02.AccountManager
                     var bAccounts = bUoW.AccountRepository.GetAll();
                     foreach(Account bAccount in bAccounts)
                     {
-                        if (bAccount.GetBalance()>Convert.ToDouble(bAccount.OverdraftLimit))
+                        if (bAccount != null)
                         {
-                            bAccountsDTO.Add(new IO.AccountDTO
+                            if (bAccount.GetBalance() > Convert.ToDouble(bAccount.OverdraftLimit))
                             {
-                                Id = bAccount.Id,
-                                Name = bAccount.Name,
-                                OverDraftLimit = bAccount.OverdraftLimit,
-                                Balance = bAccount.GetBalance()
-                            });
+                                bAccountsDTO.Add(new IO.AccountDTO
+                                {
+                                    Id = bAccount.Id,
+                                    Name = bAccount.Name,
+                                    OverDraftLimit = bAccount.OverdraftLimit,
+                                    Balance = bAccount.GetBalance()
+                                });
+                            }
                         }
                     }
                 }
