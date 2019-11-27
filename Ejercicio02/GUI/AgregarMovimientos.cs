@@ -36,7 +36,7 @@ namespace Ejercicio02.GUI
                 int accountId = Convert.ToInt32(txtAccountId.Text);
                 DateTime date = dateTimeFecha.Value;
                 string description = txtDescription.Text;
-                int amount = Convert.ToInt32(txtAmount.Text);
+                double amount = Convert.ToDouble(txtAmount.Text);
                 txtAccountId.Text = String.Empty;
                 txtDescription.Text = String.Empty;
                 txtAmount.Text = String.Empty;
