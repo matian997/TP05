@@ -44,5 +44,10 @@ namespace Ejercicio02.GUI
                 item.SubItems.Add(acc.Balance.ToString());
             }
         }
+
+        private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

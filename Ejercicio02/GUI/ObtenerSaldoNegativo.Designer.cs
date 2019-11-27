@@ -71,6 +71,7 @@
             this.listViewAccounts.TabIndex = 9;
             this.listViewAccounts.UseCompatibleStateImageBehavior = false;
             this.listViewAccounts.View = System.Windows.Forms.View.Details;
+            this.listViewAccounts.SelectedIndexChanged += new System.EventHandler(this.listViewAccounts_SelectedIndexChanged);
             // 
             // columnIdAccount
             // 
